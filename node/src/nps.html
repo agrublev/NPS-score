@@ -1,0 +1,473 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0041)https://cactus.freedcamp.com/stats/scores -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <title>Freedcamp Admin Panel</title>
+
+        <link rel="stylesheet" href="./nps_files/layout.css" type="text/css" media="screen">
+        <!--[if lt IE 9]>
+	<link rel="stylesheet" href="css/ie.css" type="text/css" media="screen" />
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+        <script type="text/javascript" src="./nps_files/ckeditor.js"></script>
+        <script src="./nps_files/jquery-1.5.2.min.js" type="text/javascript"></script>
+        <script src="./nps_files/hideshow.js" type="text/javascript"></script>
+        <script src="./nps_files/jquery.tablesorter.min.js" type="text/javascript"></script>
+        <script type="text/javascript" src="./nps_files/jquery.equalHeight.js"></script>
+        <script src="./nps_files/main.js"></script>
+                <script>
+            var base_url = "https://cactus.freedcamp.com/";
+            $(document).ready(function() {
+                $(".tablesorter").tablesorter();
+                //When page loads...
+                $(".tab_content").hide(); //Hide all content
+                $("ul.tabs li:first").addClass("active").show(); //Activate first tab
+                $(".tab_content:first").show(); //Show first tab content
+                $(".first_tab").show(); //Show first tab if there are more than 1 tab groups
+                $(".first_tab").addClass("active").show();
+
+                $("ul.tabs li").click(function() {
+                    $("ul.tabs li").removeClass("active"); //Remove any "active" class
+                    $(this).addClass("active"); //Add "active" class to selected tab
+                    $(".tab_content_"+this.parentNode.id).hide(); //Hide all tab content
+                    var activeTab = $(this).find("a").attr("href");
+                    $(activeTab).fadeIn(); //Fade in the active ID content
+                    return false;
+                });
+
+                $(".icn_add_user.inactive").click(function(){
+                    alert("To be done");
+                    return false;
+                });
+
+                $('.column').equalHeight();
+            });
+        </script>
+    </head>
+    <body>
+        <div class="flash_message"></div>
+        <div class="full_page_spinner">
+            <div class="loader_indication"></div>
+        </div>
+        <header id="header">
+            <hgroup>
+                <h1 class="site_title"><a href="https://cactus.freedcamp.com/dashboard">Freedcamp Admin</a></h1>
+                <h2 class="section_title">Scores</h2><div class="btn_view_site"><a href="http://www.freedcamp.com/">View Site</a></div>
+            </hgroup>
+        </header><!-- end of header bar -->
+
+        <section id="secondary_bar">
+            <div class="user">
+                <p>agrublev</p>
+                            </div>
+            <div class="breadcrumbs_container">
+                <article class="breadcrumbs"><a href="https://cactus.freedcamp.com/dashboard">Freedcamp Admin</a> <div class="breadcrumb_divider"></div> <a class="current">Scores</a></article>
+            </div>
+        </section><!-- end of secondary bar -->
+
+        <aside id="sidebar" class="column" style="height: 983678px;">
+<form action="https://cactus.freedcamp.com/users/search" class="quick_search" method="post" accept-charset="utf-8">
+            <input type="text" name="keyword" value="Quick Search" onfocus="if(!this._haschanged){this.value=&#39;&#39;};this._haschanged=true;">
+</form>                <hr>
+                <h3><a href="https://cactus.freedcamp.com/dashboard">Home</a></h3>
+                <h3>Support <a href="https://cactus.freedcamp.com/stats/scores#" class="toggleLink">Hide</a></h3>
+                <ul class="toggle">
+                    <li class="icn_add_user"><a href="https://cactus.freedcamp.com/users/">Users search</a></li>
+                    <li class="icn_add_user"><a href="https://cactus.freedcamp.com/projects/">Project and group search</a></li>
+                    <li class="icn_add_user"><a href="https://cactus.freedcamp.com/ownership" title="Change ownership">Ownership change</a></li>
+                    
+                    <li class="icn_add_user"><a href="https://cactus.freedcamp.com/users/get_owners_by_users">Ownership review</a></li>
+                    <li class="icn_add_user"><a href="https://cactus.freedcamp.com/users/price_calculator">Pricing Calculator</a></li>
+                    <li class="icn_add_user"><a href="https://cactus.freedcamp.com/users/check_emails_delivery">Emails delivery</a></li>
+                    <li class="icn_add_user"><a href="https://cactus.freedcamp.com/projects/project_unique_update" title="Update unique names">Changing URLs</a></li>
+                    <li class="icn_add_user"><a href="https://cactus.freedcamp.com/users/add_user">Add User to projects (obsoleted)</a></li>
+                    <li class="icn_add_user"><a href="https://cactus.freedcamp.com/users/remove_users">Remove users (obsoleted)</a></li>
+                    <li class="icn_add_user"><a href="https://cactus.freedcamp.com/users/set_read_only">Set Read Only / Guest</a></li>
+                    <li class="icn_add_user"><a href="https://cactus.freedcamp.com/users/switch_to_sendgrid">Switch users to Sendgrid</a></li>
+                    
+                </ul>
+                <h3>System <a href="https://cactus.freedcamp.com/stats/scores#" class="toggleLink">Hide</a></h3>
+                <ul class="toggle">
+                    <li class="icn_add_user"><a href="https://cactus.freedcamp.com/features">Features</a></li>
+                    <li class="icn_add_user"><a href="https://cactus.freedcamp.com/sys/maintenance">Maintenance</a></li>
+                </ul>
+
+                <h3>Stats <a href="https://cactus.freedcamp.com/stats/scores#" class="toggleLink">Hide</a></h3>
+                <ul class="toggle">
+                    <li class="icn_add_user"><a href="https://cactus.freedcamp.com/stats">Statistics</a></li>
+                    <li class="icn_add_user"><a href="https://cactus.freedcamp.com/stats/abtests" title="Starting from 26 Mar where applicable">A/B tests</a></li>
+                    <li class="icn_add_user"><a href="https://cactus.freedcamp.com/stats/conversion" title="Conversion">Conversion</a></li>
+                    <li class="icn_add_user"><a href="https://cactus.freedcamp.com/stats/gone_users" title="Gone Users">Gone Users</a></li>
+                    <li class="icn_add_user"><a target="_blank" href="https://cactus.freedcamp.com/stats/stories" title="Users stories">Users stories</a></li>
+                    <li class="icn_add_user"><a href="https://cactus.freedcamp.com/stats/scores" title="Scores">Scores</a></li>
+                    <li class="icn_add_user"><a href="https://cactus.freedcamp.com/stats/signups/by_days" title="Signups">Signups Daily</a></li>
+                    <li class="icn_add_user"><a href="https://cactus.freedcamp.com/stats/signups/by_weeks" title="Signups Weekly">Signups Weekly</a></li>
+                    <li class="icn_add_user"><a href="https://cactus.freedcamp.com/stats/signups/by_months" title="Signups Monthly">Signups Monthly</a></li>
+                </ul>
+                <h3>Misc <a href="https://cactus.freedcamp.com/stats/scores#" class="toggleLink">Hide</a></h3>
+                <ul class="toggle">
+                    <li class="icn_add_user"><a href="https://cactus.freedcamp.com/stats/misc_queries" title="Misc">Misc queries</a></li>
+                    <li class="icn_add_user"><a href="https://cactus.freedcamp.com/apps">Applications</a></li>
+                </ul>
+                <h3>Users <a href="https://cactus.freedcamp.com/stats/scores#" class="toggleLink">Hide</a></h3>
+                <ul class="toggle">
+                                        <li class="icn_add_user"><a href="https://cactus.freedcamp.com/users/subscriptions">User's trials</a></li>
+                    <li class="icn_add_user"><a href="https://cactus.freedcamp.com/users/info">User's info</a></li>
+                    <li class="icn_add_user"><a href="https://cactus.freedcamp.com/users/owner_stats">Owner stats</a></li>
+                    <li class="icn_add_user"><a href="https://cactus.freedcamp.com/users/top_active">Top Active Users</a></li>
+                    <li class="icn_add_user"><a href="https://cactus.freedcamp.com/users/active_loyal">Active Loyal Users</a></li>
+                </ul>
+
+                <h3>Logs <a href="https://cactus.freedcamp.com/stats/scores#" class="toggleLink">Hide</a></h3>
+                <ul class="toggle">
+                    <li class="icn_add_user"><a href="https://cactus.freedcamp.com/errors_log/">View errors</a></li>
+                </ul>
+                
+                <h3>Server stats <a href="https://cactus.freedcamp.com/stats/scores#" class="toggleLink">Hide</a></h3>
+                <ul class="toggle">
+                                        <li class="icn_add_user"><a href="https://cactus.freedcamp.com/server_stats/long_things/hourly" title="Long things hours">Long things hourly</a></li>
+                    <li class="icn_add_user"><a href="https://cactus.freedcamp.com/server_stats/long_things/daily" title="Long things days">Long things daily</a></li>
+                </ul>
+                <footer>
+                    <hr>
+                </footer>
+        </aside><!-- end of sidebar -->
+
+
+        <section id="main" class="column" style="height: 983678px;">
+
+<article class="module width_full stats_block">
+    <header>
+        <h3>
+            User scores (ordered by id desc). <a href="https://en.wikipedia.org/wiki/Net_Promoter">NPS</a>: 21.53%
+            <div class="title_right">
+<!--                <a href="https://freedcamp.com/Freedcamp_LxR/Freedcamp_Devel_yOf/wiki/view/2085#ab-tests" target="_blank">Wiki</a>-->
+            </div>
+            <div class="clear"></div>
+        </h3>
+    </header>
+            <table class="tablesorter" cellspacing="0">
+            <thead>
+                <tr>
+                                                                        <th class="header">
+                                user_id                            </th>
+                                                                                                <th class="header">
+                                score                            </th>
+                                                                                                <th class="header">
+                                date                            </th>
+                                                                                                <th class="header">
+                                email                            </th>
+                                                                                                            <th class="header">Stories links</th>
+                </tr>
+            </thead>
+            <tbody>
+                                    <tr class="metric_row" style="background-color: rgba(64, 255, 159, 0.90);">
+                                                                                    <td>
+                                    1847917                                </td>
+                                                                                                                <td>
+                                    9                                </td>
+                                                                                                                <td>
+                                    2020-09-14 02:41:05                                </td>
+                                                                                                                <td>
+                                    e.kupeva@ozoneunit.mk                                </td>
+                                                                                                                                <td> <a target="_blank" href="https://cactus.freedcamp.com/stats/stories/1847917" title="Story">Story</a></td>
+                    </tr>
+                                    <tr class="metric_row" style="background-color: rgba(64, 255, 159, 0.80);">
+                                                                                    <td>
+                                    1844237                                </td>
+                                                                                                                <td>
+                                    8                                </td>
+                                                                                                                <td>
+                                    2020-09-13 22:27:20                                </td>
+                                                                                                                <td>
+                                    Marie-Isabel.von-Ritter-zu-Groenesteyn@bmwgroup.com                                </td>
+                                                                                                                                <td> <a target="_blank" href="https://cactus.freedcamp.com/stats/stories/1844237" title="Story">Story</a></td>
+                    </tr>
+                                    <tr class="metric_row" style="background-color: rgba(255, 92, 92, 0.60);">
+                                                                                    <td>
+                                    1847017                                </td>
+                                                                                                                <td>
+                                    4                                </td>
+                                                                                                                <td>
+                                    2020-09-13 11:07:12                                </td>
+                                                                                                                <td>
+                                    c.fazendeiro@eupoupo.com                                </td>
+                                                                                                                                <td> <a target="_blank" href="https://cactus.freedcamp.com/stats/stories/1847017" title="Story">Story</a></td>
+                    </tr>
+                                    <tr class="metric_row" style="background-color: rgba(255, 92, 92, 0.50);">
+                                                                                    <td>
+                                    1847087                                </td>
+                                                                                                                <td>
+                                    5                                </td>
+                                                                                                                <td>
+                                    2020-09-13 05:11:33                                </td>
+                                                                                                                <td>
+                                    lonarichard@bellsouth.net                                </td>
+                                                                                                                                <td> <a target="_blank" href="https://cactus.freedcamp.com/stats/stories/1847087" title="Story">Story</a></td>
+                    </tr>
+                               
+                               
+                                    <tr class="metric_row" style="background-color: rgba(255, 92, 92, 0.50);">
+                                                                                    <td>
+                                    464106                                </td>
+                                                                                                                <td>
+                                    5                                </td>
+                                                                                                                <td>
+                                    2015-07-06 03:32:29                                </td>
+                                                                                                                <td>
+                                    k.devantoni@gmail.com                                </td>
+                                                                                                                                <td> <a target="_blank" href="https://cactus.freedcamp.com/stats/stories/464106" title="Story">Story</a></td>
+                    </tr>
+                                    <tr class="metric_row" style="background-color: rgba(64, 255, 159, 0.90);">
+                                                                                    <td>
+                                    463978                                </td>
+                                                                                                                <td>
+                                    9                                </td>
+                                                                                                                <td>
+                                    2015-07-06 02:59:06                                </td>
+                                                                                                                <td>
+                                    ealbayrakguef@outlook.com                                </td>
+                                                                                                                                <td> <a target="_blank" href="https://cactus.freedcamp.com/stats/stories/463978" title="Story">Story</a></td>
+                    </tr>
+                                    <tr class="metric_row" style="background-color: rgba(255, 92, 92, 1.00);">
+                                                                                    <td>
+                                    462424                                </td>
+                                                                                                                <td>
+                                    0                                </td>
+                                                                                                                <td>
+                                    2015-07-06 02:30:44                                </td>
+                                                                                                                <td>
+                                    jlathrop@centreda.org                                </td>
+                                                                                                                                <td> <a target="_blank" href="https://cactus.freedcamp.com/stats/stories/462424" title="Story">Story</a></td>
+                    </tr>
+                                    <tr class="metric_row" style="background-color: rgba(64, 255, 159, 1.00);">
+                                                                                    <td>
+                                    463972                                </td>
+                                                                                                                <td>
+                                    10                                </td>
+                                                                                                                <td>
+                                    2015-07-06 02:13:19                                </td>
+                                                                                                                <td>
+                                    info@erosfranco.com                                </td>
+                                                                                                                                <td> <a target="_blank" href="https://cactus.freedcamp.com/stats/stories/463972" title="Story">Story</a></td>
+                    </tr>
+                                    <tr class="metric_row" style="background-color: rgba(64, 255, 159, 0.90);">
+                                                                                    <td>
+                                    464179                                </td>
+                                                                                                                <td>
+                                    9                                </td>
+                                                                                                                <td>
+                                    2015-07-06 02:09:31                                </td>
+                                                                                                                <td>
+                                    connysd3@gmail.com                                </td>
+                                                                                                                                <td> <a target="_blank" href="https://cactus.freedcamp.com/stats/stories/464179" title="Story">Story</a></td>
+                    </tr>
+                                    <tr class="metric_row" style="background-color: rgba(255, 92, 92, 1.00);">
+                                                                                    <td>
+                                    463875                                </td>
+                                                                                                                <td>
+                                    0                                </td>
+                                                                                                                <td>
+                                    2015-07-05 17:37:08                                </td>
+                                                                                                                <td>
+                                    bing.liu@acrobiosystems.com                                </td>
+                                                                                                                                <td> <a target="_blank" href="https://cactus.freedcamp.com/stats/stories/463875" title="Story">Story</a></td>
+                    </tr>
+                                    <tr class="metric_row" style="background-color: rgba(64, 255, 159, 1.00);">
+                                                                                    <td>
+                                    463796                                </td>
+                                                                                                                <td>
+                                    10                                </td>
+                                                                                                                <td>
+                                    2015-07-05 12:31:59                                </td>
+                                                                                                                <td>
+                                    luca_albanese@hotmail.com                                </td>
+                                                                                                                                <td> <a target="_blank" href="https://cactus.freedcamp.com/stats/stories/463796" title="Story">Story</a></td>
+                    </tr>
+                                    <tr class="metric_row" style="background-color: rgba(64, 255, 159, 1.00);">
+                                                                                    <td>
+                                    463817                                </td>
+                                                                                                                <td>
+                                    10                                </td>
+                                                                                                                <td>
+                                    2015-07-05 04:12:17                                </td>
+                                                                                                                <td>
+                                    ewilliams@b2brandd.com                                </td>
+                                                                                                                                <td> <a target="_blank" href="https://cactus.freedcamp.com/stats/stories/463817" title="Story">Story</a></td>
+                    </tr>
+                                    <tr class="metric_row" style="background-color: rgba(64, 255, 159, 0.80);">
+                                                                                    <td>
+                                    463649                                </td>
+                                                                                                                <td>
+                                    8                                </td>
+                                                                                                                <td>
+                                    2015-07-05 03:38:15                                </td>
+                                                                                                                <td>
+                                    juim@live.nl                                </td>
+                                                                                                                                <td> <a target="_blank" href="https://cactus.freedcamp.com/stats/stories/463649" title="Story">Story</a></td>
+                    </tr>
+                                    <tr class="metric_row" style="background-color: rgba(64, 255, 159, 1.00);">
+                                                                                    <td>
+                                    463767                                </td>
+                                                                                                                <td>
+                                    10                                </td>
+                                                                                                                <td>
+                                    2015-07-05 02:45:55                                </td>
+                                                                                                                <td>
+                                    shahid@digitalpoin8.com                                </td>
+                                                                                                                                <td> <a target="_blank" href="https://cactus.freedcamp.com/stats/stories/463767" title="Story">Story</a></td>
+                    </tr>
+                                    <tr class="metric_row" style="background-color: rgba(64, 255, 159, 0.80);">
+                                                                                    <td>
+                                    463881                                </td>
+                                                                                                                <td>
+                                    8                                </td>
+                                                                                                                <td>
+                                    2015-07-05 02:34:26                                </td>
+                                                                                                                <td>
+                                    flipsy5@gmail.com                                </td>
+                                                                                                                                <td> <a target="_blank" href="https://cactus.freedcamp.com/stats/stories/463881" title="Story">Story</a></td>
+                    </tr>
+                                    <tr class="metric_row" style="background-color: rgba(64, 255, 159, 1.00);">
+                                                                                    <td>
+                                    457863                                </td>
+                                                                                                                <td>
+                                    10                                </td>
+                                                                                                                <td>
+                                    2015-07-04 11:04:35                                </td>
+                                                                                                                <td>
+                                    dimitxx@gmail.com                                </td>
+                                                                                                                                <td> <a target="_blank" href="https://cactus.freedcamp.com/stats/stories/457863" title="Story">Story</a></td>
+                    </tr>
+                                    <tr class="metric_row" style="background-color: rgba(64, 255, 159, 0.80);">
+                                                                                    <td>
+                                    463628                                </td>
+                                                                                                                <td>
+                                    8                                </td>
+                                                                                                                <td>
+                                    2015-07-04 10:48:19                                </td>
+                                                                                                                <td>
+                                    sarvasub@gmail.com                                </td>
+                                                                                                                                <td> <a target="_blank" href="https://cactus.freedcamp.com/stats/stories/463628" title="Story">Story</a></td>
+                    </tr>
+                                    <tr class="metric_row" style="background-color: rgba(255, 92, 92, 0.50);">
+                                                                                    <td>
+                                    132941                                </td>
+                                                                                                                <td>
+                                    5                                </td>
+                                                                                                                <td>
+                                    2015-07-04 04:03:15                                </td>
+                                                                                                                <td>
+                                    alex@freedcamp.com                                </td>
+                                                                                                                                <td> <a target="_blank" href="https://cactus.freedcamp.com/stats/stories/132941" title="Story">Story</a></td>
+                    </tr>
+                                    <tr class="metric_row" style="background-color: rgba(64, 255, 159, 1.00);">
+                                                                                    <td>
+                                    463615                                </td>
+                                                                                                                <td>
+                                    10                                </td>
+                                                                                                                <td>
+                                    2015-07-04 02:31:15                                </td>
+                                                                                                                <td>
+                                    atpaton10@gmail.com                                </td>
+                                                                                                                                <td> <a target="_blank" href="https://cactus.freedcamp.com/stats/stories/463615" title="Story">Story</a></td>
+                    </tr>
+                                    <tr class="metric_row" style="background-color: rgba(64, 255, 159, 0.80);">
+                                                                                    <td>
+                                    459897                                </td>
+                                                                                                                <td>
+                                    8                                </td>
+                                                                                                                <td>
+                                    2015-07-04 02:25:36                                </td>
+                                                                                                                <td>
+                                    gyorgy.roland@controlpro.hu                                </td>
+                                                                                                                                <td> <a target="_blank" href="https://cactus.freedcamp.com/stats/stories/459897" title="Story">Story</a></td>
+                    </tr>
+                                    <tr class="metric_row" style="background-color: rgba(255, 92, 92, 0.60);">
+                                                                                    <td>
+                                    463567                                </td>
+                                                                                                                <td>
+                                    4                                </td>
+                                                                                                                <td>
+                                    2015-07-03 21:06:33                                </td>
+                                                                                                                <td>
+                                    nimatullah.razmjo@ahg.af                                </td>
+                                                                                                                                <td> <a target="_blank" href="https://cactus.freedcamp.com/stats/stories/463567" title="Story">Story</a></td>
+                    </tr>
+                                    <tr class="metric_row" style="background-color: rgba(64, 255, 159, 0.80);">
+                                                                                    <td>
+                                    463486                                </td>
+                                                                                                                <td>
+                                    8                                </td>
+                                                                                                                <td>
+                                    2015-07-03 12:22:47                                </td>
+                                                                                                                <td>
+                                    aaron.bradlyj@gmail.com                                </td>
+                                                                                                                                <td> <a target="_blank" href="https://cactus.freedcamp.com/stats/stories/463486" title="Story">Story</a></td>
+                    </tr>
+                                    <tr class="metric_row" style="background-color: rgba(64, 255, 159, 0.70);">
+                                                                                    <td>
+                                    463266                                </td>
+                                                                                                                <td>
+                                    7                                </td>
+                                                                                                                <td>
+                                    2015-07-03 05:59:32                                </td>
+                                                                                                                <td>
+                                    christine@adzedia.com                                </td>
+                                                                                                                                <td> <a target="_blank" href="https://cactus.freedcamp.com/stats/stories/463266" title="Story">Story</a></td>
+                    </tr>
+                                    <tr class="metric_row" style="background-color: rgba(255, 92, 92, 1.00);">
+                                                                                    <td>
+                                    463319                                </td>
+                                                                                                                <td>
+                                    0                                </td>
+                                                                                                                <td>
+                                    2015-07-03 05:30:03                                </td>
+                                                                                                                <td>
+                                    kevin@stargazerdigital.co.uk                                </td>
+                                                                                                                                <td> <a target="_blank" href="https://cactus.freedcamp.com/stats/stories/463319" title="Story">Story</a></td>
+                    </tr>
+                                    <tr class="metric_row" style="background-color: rgba(64, 255, 159, 0.90);">
+                                                                                    <td>
+                                    463313                                </td>
+                                                                                                                <td>
+                                    9                                </td>
+                                                                                                                <td>
+                                    2015-07-03 05:13:21                                </td>
+                                                                                                                <td>
+                                    a.utka@protrader.com                                </td>
+                                                                                                                                <td> <a target="_blank" href="https://cactus.freedcamp.com/stats/stories/463313" title="Story">Story</a></td>
+                    </tr>
+                                    <tr class="metric_row" style="background-color: rgba(64, 255, 159, 1.00);">
+                                                                                    <td>
+                                    463566                                </td>
+                                                                                                                <td>
+                                    10                                </td>
+                                                                                                                <td>
+                                    2015-07-03 05:07:19                                </td>
+                                                                                                                <td>
+                                    shershah.rahim@ahg.af                                </td>
+                                                                                                                                <td> <a target="_blank" href="https://cactus.freedcamp.com/stats/stories/463566" title="Story">Story</a></td>
+                    </tr>
+                                    <tr class="metric_row" style="background-color: rgba(255, 92, 92, 1.00);">
+                                                                                    <td>
+                                    463283                                </td>
+                                                                                                                <td>
+                                    0                                </td>
+                                                                                                                <td>
+                                    2015-07-03 05:07:04                                </td>
+                                                                                                                <td>
+                                    roman.komolka@szymkowiak.pl                                </td>
+                                                                                                                                <td> <a target="_blank" href="https://cactus.freedcamp.com/stats/stories/463283" title="Story">Story</a></td>
+                    </tr>
+                            </tbody>
+        </table>
+    </article>
+   
+<script>
+</script>
+            <div class="spacer"></div>
+        </section>
+    
+
+</body></html>

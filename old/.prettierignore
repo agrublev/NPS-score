@@ -1,0 +1,4 @@
+**/*.yaml
+**/*.yml
+configs/**/*
+<IntelliJ_File_Header>
