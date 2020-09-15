@@ -3,9 +3,9 @@ import React from "react";
 import "./App.less";
 import { observer } from "mobx-react";
 import { observable } from "mobx";
-import ComponentExample from "./ComponentExample";
-import Read from "./read";
 import Reader from "./Reader";
+import html2canvas from "html2canvas";
+
 @observer
 class App extends React.Component {
     @observable tree = "sex";
@@ -13,35 +13,35 @@ class App extends React.Component {
     render() {
         return (
             <div className="App">
-                <Read />
+                <h1>NPS SCORES</h1>
                 <Reader />
-                <header className="App-header">
+                <div>
                     <button
-                        id={"test"}
                         onClick={() => {
-                            this.tree = "dream" + Date.now();
+                            this.screen();
                         }}
                     >
-                        Change Things
+                        TAKE SCREENSHOT
                     </button>
-                    <div>
-                        {this.tree} Edit <code>src/App.js</code> and save to reload.
-                        <p>
-                            <a
-                                className="App-link"
-                                href="https://reactjs.org"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                Learn React
-                            </a>
-                        </p>
-                    </div>
-                </header>
-                <ComponentExample />
+                    <a href={"#"} ref={(r) => (this.refA = r)}>
+                        SAVE IMAGE
+                    </a>
+                </div>
             </div>
         );
     }
+    screen = () => {
+        html2canvas(document.querySelector("#root")).then((canvas) => {
+            document.body.appendChild(canvas);
+            let base64URL = canvas
+                .toDataURL("image/jpeg")
+                .replace("image/jpeg", "image/octet-stream");
+            let dataURL = canvas.toDataURL("image/png");
+            this.refA.href = dataURL;
+            this.refA.click();
+            console.log(base64URL);
+        });
+    };
 }
 
 export default hot(module)(App);
